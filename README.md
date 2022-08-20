@@ -3,5 +3,5 @@ After deployemnt, you need to set up webhook. Replace `<YOUR-BOT-TOKEN>` and `<Y
 ```
 curl -X POST https://api.telegram.org/bot<YOUR-BOT-TOKEN>/setWebhook \
   -H "Content-type: application/json" \
-  -d '{"url": "<YOUR-PROJECT-URL>/api/webhook"}'
+  -d '{"url": "<YOUR-PROJECT-URL>/api/index"}'
 ```
