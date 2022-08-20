@@ -1,7 +1,15 @@
+import "dotenv/config";
+
 import { Bot } from "grammy";
 
+const { TOKEN } = process.env;
+
+if (!TOKEN) {
+  console.log("Error: TOKEN not found");
+}
+
 // Create an instance of the `Bot` class and pass your authentication token to it.
-const bot = new Bot("5487001631:AAGeqDqyxSOR-Sqv8o7ane05k0QAFqG0VfA"); // <-- put your authentication token between the ""
+const bot = new Bot(TOKEN!);
 
 // You can now register listeners on your bot object `bot`.
 // grammY will call the listeners when users send messages to your bot.
