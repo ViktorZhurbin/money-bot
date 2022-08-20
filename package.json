@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "sucrase-node src/index.ts"
+    "dev": "sucrase-node src/index.ts",
+    "build": "tsc "
   },
   "author": "",
   "license": "ISC",
