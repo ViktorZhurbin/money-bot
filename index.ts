@@ -2,26 +2,20 @@ import "dotenv/config";
 
 import { Bot } from "grammy";
 
-const { TOKEN } = process.env;
+const { TOKEN, WEBHOOK } = process.env;
 
 if (!TOKEN) {
-  console.log("Error: TOKEN not found");
+  console.log("Error: TOKEN variable not found");
+
+  process.exit();
 }
 
-// Create an instance of the `Bot` class and pass your authentication token to it.
-const bot = new Bot(TOKEN!);
+if (!WEBHOOK) {
+  console.log("Error: WEBHOOK variable not found");
 
-// You can now register listeners on your bot object `bot`.
-// grammY will call the listeners when users send messages to your bot.
+  process.exit();
+}
 
-// Handle the /start command.
-bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
+const bot = new Bot(TOKEN);
 
-// Handle other messages.
-bot.on("message", (ctx) => ctx.reply("Got another message!"));
-
-// Now that you specified how to handle messages, you can start your bot.
-// This will connect to the Telegram servers and wait for messages.
-
-// Start the bot.
-bot.start();
+bot.api.setWebhook(WEBHOOK);
